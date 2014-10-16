@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module rename-to='bookingSystem'>
+	<!-- Inherit the core Web Toolkit stuff. -->
+	<inherits name='com.google.gwt.user.User' />
+
+	<!-- We need the JUnit module in the main module, -->
+	<!-- otherwise eclipse complains (Google plugin bug?) -->
+	<inherits name='com.google.gwt.junit.JUnit' />
+
+	<!-- Inherit the default GWT style sheet. You can change -->
+	<!-- the theme of your GWT application by uncommenting -->
+	<!-- any one of the following lines. -->
+	<inherits name='com.google.gwt.user.theme.standard.Standard' />
+	<!-- <inherits name='com.google.gwt.user.theme.chrome.Chrome'/> -->
+	<!-- <inherits name='com.google.gwt.user.theme.dark.Dark'/> -->
+
+	<!-- Other module inherits -->
+<inherits name="com.google.gwt.resources.Resources" />
+	<inherits name='com.gwtplatform.dispatch.Dispatch' />
+	<inherits name='com.gwtplatform.mvp.Mvp' />
+
+	<inherits name='com.sencha.gxt.ui.GXT' />
+	<inherits name='com.google.gwt.inject.Inject' />
+	<inherits name="com.google.gwt.uibinder.UiBinder" />
+	<inherits name='net.sf.gilead.Gilead4Gwt' />
+	<inherits name="com.eddy.cribz.bookingSystem.model" />
+	
+	<!-- GWT Uploader -->
+
+
+	<inherits name="com.smartgwt.SmartGwtNoTheme" />
+	<inherits name="com.smartclient.theme.enterprise.Enterprise" />
+	<inherits name="com.smartclient.theme.enterprise.EnterpriseResources" />
+	
+	<!-- Specify the app entry point class. -->
+	<entry-point class='com.eddy.cribz.bookingSystem.client.bookingSystem' />
+
+	<!-- Specify the paths for translatable code -->
+	<source path='client' />
+	<source path='shared' />
+	
+	<!-- Set user agents -->
+	<set-property name="user.agent" value="ie9,gecko1_8,safari" />
+	<extend-property name="locale" values="en" />
+
+	<define-configuration-property name="gin.ginjector"
+		is-multi-valued="false" />
+	<set-configuration-property name="gin.ginjector"
+		value="com.eddy.cribz.bookingSystem.client.gin.MyGinjector" />
+
+	<!-- gwt-log -->
+	<!-- For development a default of `DEBUG` is recommended -->
+	<inherits name="com.allen_sauer.gwt.log.gwt-log-DEBUG" />
+
+	<extend-property name="log_level" values="DEBUG" />
+	<set-property name="log_level" value="DEBUG" />
+
+	<set-property name="compiler.emulatedStack" value="true" />
+	<set-configuration-property name="compiler.emulatedStack.recordLineNumbers"
+		value="true" />
+	<set-configuration-property name="compiler.emulatedStack.recordFileNames"
+		value="true" />
+
+	<!-- Loggers Enabled by default -->
+	<set-property name="log_ConsoleLogger" value="ENABLED" />
+	<set-property name="log_DivLogger" value="DISABLED" />
+	<set-property name="log_FirebugLogger" value="DISABLED" />
+	<set-property name="log_GWTLogger" value="ENABLED" />
+	<set-property name="log_SystemLogger" value="ENABLED" />
+
+	<!-- Loggers Disabled by default -->
+	<set-property name="log_WindowLogger" value="DISABLED" />
+	
+
+</module>

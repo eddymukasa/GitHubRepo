@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+             http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+             http://www.springframework.org/schema/context
+             http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+	<context:annotation-config />
+	<import resource="applicationContext-server.xml" />
+	<import resource="applicationContext-security.xml" />
+
+
+	<bean id="searchProcessor" class="com.googlecode.genericdao.search.jpa.JPASearchProcessor">
+		<constructor-arg ref="metadataUtil" />
+	</bean>
+
+	<bean id="metadataUtil"
+		class="com.eddy.cribz.bookingSystem.core.search.dao.JpaAnnotationMetadataUtil">
+	</bean>
+
+	<bean id="authenticationProvider"
+		class="com.eddy.cribz.bookingSystem.core.security.authentication.ProcnetAuthenticationProvider" />
+
+	<bean id="applicationContextProvider"
+		class="com.eddy.cribz.bookingSystem.core.utils.ApplicationContextProvider" />
+
+	<bean name="settings"
+		class="com.eddy.cribz.bookingSystem.core.utils.ApplicationPropertyPlaceHolderConfigurer">
+		<property name="environmentVariable" value="SETTINGS" />
+		<property name="classPathPropertiesFilename" value="SETTINGS.properties" />
+	</bean>
+
+</beans>
